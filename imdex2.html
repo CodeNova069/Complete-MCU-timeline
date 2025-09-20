@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCU Timeline - The Story</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline-section {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .year-title {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
+        .movie-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .movie-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .movie-row:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+
+        .movie-row:nth-child(even) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .movie-poster {
+            width: 200px;
+            height: 300px;
+            background: linear-gradient(45deg, #333, #555);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .movie-poster:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.3);
+        }
+
+        .movie-poster::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .movie-poster:hover::before {
+            left: 100%;
+        }
+
+        .poster-text {
+            color: #fff;
+            font-size: 1.1rem;
+            text-align: center;
+            padding: 20px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .movie-info {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .movie-title {
+            font-size: 1.8rem;
+            color: #4ecdc4;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
+        }
+
+        .movie-description {
+            color: #ccc;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .timeline-line {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
+            margin: 40px 0;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
+        .movie-year {
+            color: #96ceb4;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .movie-row {
+                flex-direction: column !important;
+                text-align: center;
+            }
+
+            .movie-poster {
+                margin: 0 0 20px 0;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .movie-poster img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            
+                border-radius: 10px;
+       
+                position: absolute;
+         
+                top: 0;
+                left: 0;
+                z-index: 1;
+              
+            }
+
+        }
+
+        .fit{
+            height:300px;
+            width:300px;
+        }
+        .fit2{
+            height:300px;
+            width:300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="timeline">
+            <div class="timeline-section">
+                <h2 class="year-title">1940s</h2>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                        <img src="thumbnails/The First Avenger.png" class="fit2">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">1943-1945</div>
+                        <h3 class="movie-title">Captain America: The First Avenger</h3>
+                        <p class="movie-description">Steve Rogers transforms into Captain America and battles Red Skull
+                            and Hydra. First appearance of the Tesseract (Space Stone) and the foundation of
+                            S.H.I.E.L.D.</p>
+                    </div>
+                </div>
+                <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-section">
+                <h2 class="year-title">1990s</h2>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                        <img src="thumbnails/Captain Marvel.png" alt="Captain Marvel Poster"  class="fit">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">1995</div>
+                        <h3 class="movie-title">Captain Marvel</h3>
+                        <p class="movie-description">Carol Danvers becomes Captain Marvel and helps the Skrulls find a
+                            new home. Nick Fury loses his eye and starts the Avengers Initiative.</p>
+                    </div>
+                </div>
+                <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-section">
+                <h2 class="year-title">2008</h2>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                        <img src="thumbnails/Iron Man.png" class="fit">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2008</div>
+                        <h3 class="movie-title">Iron Man</h3>
+                        <p class="movie-description">Tony Stark builds his first Iron Man suit and becomes a superhero.
+                            The beginning of the MCU and Tony's journey as Iron Man.</p>
+                    </div>
+                </div>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/The Incredible Hulk.png" class="fit">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2008</div>
+                        <h3 class="movie-title">The Incredible Hulk</h3>
+                        <p class="movie-description">Bruce Banner struggles with his transformation into the Hulk while
+                            being hunted by General Ross and facing the Abomination.</p>
+                    </div>
+                </div>
+                <h2 class="year-title">2010</h2>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/Iron Man 2.png" class="fit">
+
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2010</div>
+                        <h3 class="movie-title">Iron Man 2</h3>
+                        <p class="movie-description">Tony faces Ivan Vanko and government pressure. Introduction of
+                            Black Widow and War Machine. Nick Fury approaches Tony about the Avengers.</p>
+                    </div>
+                </div>
+                <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-section">
+                <h2 class="year-title">2012</h2>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/the avengers.png" class="fit">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2012</div>
+                        <h3 class="movie-title">The Avengers</h3>
+                        <p class="movie-description">Earth's Mightiest Heroes assemble for the first time to stop Loki
+                            and the Chitauri invasion of New York. The Mind Stone is introduced.</p>
+                    </div>
+                </div>
+                <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-section">
+                <h2 class="year-title">2013</h2>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/Iron Man 3.png" class="fit">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2013</div>
+                        <h3 class="movie-title">Iron Man 3</h3>
+                        <p class="movie-description">Tony deals with PTSD after the Battle of New York while facing the
+                            Mandarin and Aldrich Killian. Tony destroys all his suits.</p>
+                    </div>
+                </div>
+                <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-section">
+                <h2 class="year-title">2014</h2>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/The Dark World.png" class="fit">
+
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2014</div>
+                        <h3 class="movie-title">Thor: The Dark World</h3>
+                        <p class="movie-description">Thor battles Malekith and the Dark Elves. The Reality Stone
+                            (Aether) is introduced. Loki fakes his death and impersonates Odin.</p>
+                    </div>
+                </div>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/The Winter Soldier.png" class="fit">
+
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2014</div>
+                        <h3 class="movie-title">Captain America: The Winter Soldier</h3>
+                        <p class="movie-description">Steve discovers Hydra has infiltrated S.H.I.E.L.D. and faces his
+                            old friend Bucky Barnes as the Winter Soldier. S.H.I.E.L.D. falls.</p>
+                    </div>
+                </div>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/guardians of the galaxy.png" class="fit">
+
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2014</div>
+                        <h3 class="movie-title">Guardians of the Galaxy</h3>
+                        <p class="movie-description">Peter Quill forms the Guardians and battles Ronan. The Power Stone
+                            is introduced. First mention of Thanos as a major threat.</p>
+                    </div>
+                </div>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/guardians of the galaxy 2.png" class="fit">
+
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2014</div>
+                        <h3 class="movie-title">Guardians of the Galaxy Vol. 2</h3>
+                        <p class="movie-description">Peter meets his father Ego while the Guardians face internal
+                            conflicts. The team grows stronger as a family unit.</p>
+                    </div>
+                </div>
+                <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-section">
+                <h2 class="year-title">2015</h2>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/Age of Ultron.png" class="fit">
+
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2015</div>
+                        <h3 class="movie-title">Avengers: Age of Ultron</h3>
+                        <p class="movie-description">Tony creates Ultron who becomes a global threat. Introduction of
+                            Vision, Scarlet Witch, and Quicksilver. The Mind Stone powers Vision.</p>
+                    </div>
+                </div>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/Ant-Man.png" class="fit">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2015</div>
+                        <h3 class="movie-title">Ant-Man</h3>
+                        <p class="movie-description">Scott Lang becomes the new Ant-Man with help from Hank Pym. They
+                            stop Darren Cross and his Yellowjacket suit from being weaponized.</p>
+                    </div>
+                </div>
+                <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-section">
+                <h2 class="year-title">2016</h2>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/captain america civil war.png" class="fit">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2016</div>
+                        <h3 class="movie-title">Captain America: Civil War</h3>
+                        <p class="movie-description">The Avengers split over the Sokovia Accords. Zemo reveals the truth
+                            about Tony's parents. Introduction of Black Panther and Spider-Man.</p>
+                    </div>
+                </div>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/Black Widow.png" class="fit">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2016</div>
+                        <h3 class="movie-title">Black Widow</h3>
+                        <p class="movie-description">Natasha confronts her past and reunites with her Russian spy
+                            "family" to take down the Red Room and free the Widows.</p>
+                    </div>
+                </div>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/Homecoming.png" class="fit">
+
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2016</div>
+                        <h3 class="movie-title">Spider-Man: Homecoming</h3>
+                        <p class="movie-description">Peter Parker balances high school life with being Spider-Man while
+                            stopping Vulture's illegal arms dealing operation.</p>
+                    </div>
+                </div>
+                <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-section">
+                <h2 class="year-title">2017</h2>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/Doctor Strange.png" class="fit">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2017</div>
+                        <h3 class="movie-title">Doctor Strange</h3>
+                        <p class="movie-description">Stephen Strange becomes the Sorcerer Supreme and protects Earth
+                            from mystical threats. Introduction of the Time Stone and the multiverse concept.</p>
+                    </div>
+                </div>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/black panther.png" class="fit">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2017</div>
+                        <h3 class="movie-title">Black Panther</h3>
+                        <p class="movie-description">T'Challa becomes king of Wakanda and faces Killmonger's challenge.
+                            Wakanda opens up to the world, revealing their advanced technology.</p>
+                    </div>
+                </div>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/thor ragnarok.png" class="fit">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2017</div>
+                        <h3 class="movie-title">Thor: Ragnarok</h3>
+                        <p class="movie-description">Thor discovers his sister Hela and witnesses the destruction of
+                            Asgard. Thor reunites with Hulk and leads the Asgardian people to safety.</p>
+                    </div>
+                </div>
+                <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-section">
+                <h2 class="year-title">2018</h2>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/Ant-Man and The Wasp.png" class="fit">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2018</div>
+                        <h3 class="movie-title">Ant-Man and the Wasp</h3>
+                        <p class="movie-description">Scott Lang partners with Hope van Dyne to rescue Janet from the
+                            Quantum Realm while evading both the law and a mysterious new enemy.</p>
+                    </div>
+                </div>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/infinity war.png" class="fit">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2018</div>
+                        <h3 class="movie-title">Avengers: Infinity War</h3>
+                        <p class="movie-description">Thanos collects the Infinity Stones and succeeds in snapping away
+                            half of all life in the universe. The Avengers' greatest defeat.</p>
+                    </div>
+                </div>
+                <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-section">
+                <h2 class="year-title">2023</h2>
+                <div class="movie-row">
+                    <div class="movie-poster">
+                           <img src="thumbnails/avengers endgame.png" class="fit">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-year">2019/2023</div>
+                        <h3 class="movie-title">Avengers: Endgame</h3>
+                        <p class="movie-description">The remaining Avengers execute a time heist to collect the Infinity
+                            Stones and reverse the Snap. Tony Stark's ultimate sacrifice saves the universe.</p>
+                    </div>
+                </div>
+                <div class="timeline-line"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

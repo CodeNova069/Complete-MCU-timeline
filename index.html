@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCU Timeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* Add this for a smooth fade-out effect */
+            transition: opacity 1.5s ease-in-out; 
+        }
+        /* New CSS class to fade out the page */
+        body.fade-out {
+            opacity: 0;
+        }
+        .header {
+            margin-bottom: 40px;
+        }
+        .infinity-stones {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            position: relative;
+            height: 120px;
+        }
+        .stone-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+        .stone {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            animation: rotate 8s linear infinite;
+            box-shadow: 0 0 20px currentColor;
+        }
+        .stone.space { color: #4169E1; }
+        .stone.reality { color: #DC143C; }
+        .stone.power { color: #9932CC; }
+        .stone.mind { color: #FFD700; }
+        .stone.time { color: #00FF7F; }
+        .stone.soul { color: #FF8C00; }
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg) translateX(80px) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg) translateX(80px) rotate(-360deg); }
+        }
+        .stone:nth-child(1) { animation-delay: 0s; }
+        .stone:nth-child(2) { animation-delay: -1.33s; }
+        .stone:nth-child(3) { animation-delay: -2.66s; }
+        .stone:nth-child(4) { animation-delay: -4s; }
+        .stone:nth-child(5) { animation-delay: -5.33s; }
+        .stone:nth-child(6) { animation-delay: -6.66s; }
+
+        h1 {
+            font-size: 120px;
+            margin-bottom: 10px;
+            /* color:linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7); */
+            color:rgb(156, 18, 18);
+             /* background-size: 300% 300%;  */
+            /* -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;  */
+            animation:gradientShift 3s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .subtitle {
+            font-size: 30px;
+            color: #ccc;
+            margin-bottom: 40px;
+        }
+        .enter-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #ff6b6b;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        .enter-button:hover {
+            background-color: #ff8c00;
+            box-shadow: 0 8px 20px rgba(255, 140, 0, 0.6);
+            transform: translateY(-3px);
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="infinity-stones">
+            <div class="stone-container">
+                <div class="stone space"></div>
+                <div class="stone reality"></div>
+                <div class="stone power"></div>
+                <div class="stone mind"></div>
+                <div class="stone time"></div>
+                <div class="stone soul"></div>
+            </div>
+        </div>
+        <h1>MCU TIMELINE</h1>
+        <p class="subtitle">Marvel Cinematic Universe Timeline</p>
+        <a id="timeline-link" href="imdex2.html" class="enter-button" class="fit";>START EXPLORING</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineLink = document.getElementById('timeline-link');
+            const body = document.body;
+
+            timelineLink.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevents the default link behavior
+                body.classList.add('fade-out'); // Adds the fade-out class
+
+                // Wait for the animation to finish before redirecting
+                setTimeout(function() {
+                    window.location.href = timelineLink.href;
+                }, 1500); // 1.5 seconds delay
+            });
+        });
+    </script>
+</body>
+</html>
